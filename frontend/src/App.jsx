@@ -1,9 +1,11 @@
-import Login from "./Login"
+
+import DashBoard from "./pages/DashBoard"
 
 function App() {
   return (
     <>
-    <Login/>
+ 
+    <DashBoard/>
     </>
   )
 }
