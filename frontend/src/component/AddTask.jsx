@@ -9,7 +9,7 @@ function AddTask() {
     navigate('/add-task');
   }
   return (
-    <div className="flex justify-around  m-10 border-2 h-screen p-2">
+    <div className="flex justify-around  m-10 border-2 p-2">
       <div className="flex justify-center w-1/2 border-2 p-2">
         <Button
           className="h-10"

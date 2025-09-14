@@ -12,7 +12,8 @@ function CreateTask() {
   const [priority, setPriority] = useState("average");
   const [status, setStatus] = useState("yet-to-complete");
   const handleSubmit = () => {
-    const task = {
+    const newTask = {
+      id:Date.now(),
       title,
       Description,
       date,
@@ -21,7 +22,9 @@ function CreateTask() {
       status,
     };
 
-    onAddTask(task);
+    const existing = JSON.parse(localStorage.getItem("tasks")) || [];
+    existing.push(newTask);
+    localStorage.setItem("tasks", JSON.stringify(existing));
 
     setTitle("");
     setDescription("");
@@ -29,11 +32,10 @@ function CreateTask() {
     setTime("");
     setPriority("average");
     setStatus("yet-to-complete");
+      navigate("/dashboard");
   };
 
-  const handleNavigatetoListing=()=>{
-         navigate('/dashboard');
-  }
+ 
   return (
     <div className="flex flex-col h-screen w-full items-center justify-center">
        <h1 className="font-bold">Create a Task</h1>
@@ -97,16 +99,7 @@ function CreateTask() {
         Save Task
       </Button>
 
-       <Button
-        variant="contained"
-        sx={{
-          backgroundColor: "#072543ff",
-          "&:hover": { backgroundColor: "#020406ff" },
-        }}
-        onClick={handleNavigatetoListing}
-      >
-      Move to Listing Screen
-      </Button>
+      
     </div>
     </div>
   );
