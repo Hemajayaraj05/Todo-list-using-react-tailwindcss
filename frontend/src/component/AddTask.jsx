@@ -22,9 +22,9 @@ function AddTask() {
           Add Task
         </Button>
       </div>
-      <div className="flex  justify-center w-1/2 border-2">
+      {/* <div className="flex  justify-center w-1/2 border-2">
         <p>Sort By : </p>
-      </div>
+      </div> */}
     </div>
   );
 }
