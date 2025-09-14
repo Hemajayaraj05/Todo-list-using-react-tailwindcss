@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AuthContext from "../component/AuthContext";
 
 
@@ -6,12 +7,13 @@ function Login(){
 
   const [email, setName] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   const {login} = useContext(AuthContext);
 
   const handleSubmit = (e) =>{
-    e.preventDefault();
+     e.preventDefault();
     login(email, password);
+    navigate("/dashboard");
   }
  return(
   <div className="flex items-center justify-center min-h-screen bg-gray-100">
